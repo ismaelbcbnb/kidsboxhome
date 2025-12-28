@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kid's Box – Biblioteca</title>
+  <meta name="description" content="Página inicial com links para os 7 livros Kid's Box (Starter a 6)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <h1 class="site-title">Kid's Box • American English</h1>
+      <p class="site-subtitle">Updated Second Edition</p>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container" role="main">
+    <section aria-labelledby="grid-title">
+      <h2 id="grid-title" class="visually-hidden">Lista de livros</h2>
+
+      <div class="grid" id="livros-grid">
+        <!-- Cada card é um link para o respectivo livro -->
+        <a class="card" href="https://ismaelbcbnb.github.io/kidsboxstarter" data-title="Starter" aria-label="Abrir Kid's Box Starter" target="_blank">
+          <div class="cover" data-cover="./resources/starter.jpg" aria-hidden="true"></div>
+          <div class="card-info">
+            <h3>Kid's Box Starter</h3>
+            <p>Starter Level</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://ismaelbcbnb.github.io/kidsbox1" data-title="1" aria-label="Abrir Kid's Box 1" target="_blank">
+          <div class="cover" data-cover="./resources/1.jpg" aria-hidden="true"></div>
+          <div class="card-info">
+            <h3>Kid's Box 1</h3>
+            <p>Level 1</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://ismaelbcbnb.github.io/kidsbox2" data-title="2" aria-label="Abrir Kid's Box 2" target="_blank">
+          <div class="cover" data-cover="./resources/2.jpg" aria-hidden="true"></div>
+          <div class="card-info">
+            <h3>Kid's Box 2</h3>
+            <p>Level 2</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://ismaelbcbnb.github.io/kidsbox3" data-title="3" aria-label="Abrir Kid's Box 3" target="_blank">
+          <div class="cover" data-cover="./resources/3.jpg" aria-hidden="true"></div>
+          <div class="card-info">
+            <h3>Kid's Box 3</h3>
+            <p>Level 3</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://ismaelbcbnb.github.io/kidsbox4" data-title="4" aria-label="Abrir Kid's Box 4" target="_blank">
+          <div class="cover" data-cover="./resources/4.jpg" aria-hidden="true"></div>
+          <div class="card-info">
+            <h3>Kid's Box 4</h3>
+            <p>Level 4</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://ismaelbcbnb.github.io/kidsbox5" data-title="5" aria-label="Abrir Kid's Box 5" target="_blank">
+          <div class="cover" data-cover="./resources/5.jpg" aria-hidden="true"></div>
+          <div class="card-info">
+            <h3>Kid's Box 5</h3>
+            <p>Level 5</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://ismaelbcbnb.github.io/kidsbox6" data-title="6" aria-label="Abrir Kid's Box 6" target="_blank">
+          <div class="cover" data-cover="./resources/6.jpg" aria-hidden="true"></div>
+          <div class="card-info">
+            <h3>Kid's Box 6</h3>
+            <p>Level 6</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© <span id="ano"></span> Ismael Costa • Kid's Box</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

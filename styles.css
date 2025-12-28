@@ -1,0 +1,74 @@
+/* ====== Reset básico e variáveis ====== */
+:root {
+  /* Paleta discreta sobre fundo escuro */
+  --bg: #0e0f12;             /* quase preto */
+  --surface: #17181d;        /* painel */
+  --text: #e6e7eb;           /* texto principal */
+  --muted: #a9adb8;          /* texto secundário */
+  --primary: #7aa2f7;        /* azul suave para detalhes */
+  --accent: #9ece6a;         /* verde suave para destaques */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  background: radial-gradient(1200px 600px at 75% -100px, #17181d 0%, var(--bg) 60%), var(--bg);
+  color: var(--text);
+}
+
+.container { width: min(1100px, 92%); margin-inline: auto; }
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+
+/* ====== Header ====== */
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(23,24,29,0.7); backdrop-filter: blur(8px); border-bottom: 1px solid #23252c; }
+.site-header .container { padding: 22px 0; }
+.site-title { font-size: clamp(1.4rem, 3.5vw, 2rem); margin: 0; letter-spacing: 0.2px; }
+.site-subtitle { margin: 6px 0 0; color: var(--muted); }
+
+/* ====== Grid de livros ====== */
+main.container { padding: 24px 0 60px; }
+.grid { display: grid; grid-template-columns: repeat( auto-fit, minmax(220px, 1fr) ); gap: 22px; }
+
+.card { position: relative; display: flex; flex-direction: column; text-decoration: none; color: inherit; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)), var(--surface); border: 1px solid #23252c; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); isolation: isolate; }
+.card:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* Capa (você pode substituir por background-image via data-cover ou por <img>) */
+.cover { aspect-ratio: 3/4; background: #0b0c0f; background-position: center; background-size: cover; background-repeat: no-repeat; border-bottom: 1px solid #23252c; position: relative; }
+
+/* Emblema sutil */
+.cover::after { content: ""; position: absolute; inset: 0; background: radial-gradient(180px 90px at 70% 20%, rgba(122,162,247,0.25), transparent 60%), radial-gradient(160px 80px at 20% 80%, rgba(158,206,106,0.20), transparent 60%); opacity: 0.9; pointer-events: none; transition: opacity .3s ease; }
+
+.card-info { padding: 14px 14px 16px; }
+.card-info h3 { margin: 0 0 6px; font-size: 1.05rem; font-weight: 700; }
+.card-info p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+/* ====== Animações de hover ====== */
+.card { transform: translateZ(0); will-change: transform, box-shadow; }
+.card .cover { transform-origin: center; }
+
+/* Efeito 1: levitar + brilho suave */
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 45px rgba(0,0,0,.55); }
+.card:hover .cover::after { opacity: 1; }
+
+/* Efeito 2: zoom leve na capa com parallax */
+.card:hover .cover { transform: scale(1.04); }
+
+/* Efeito 3: brilho nas bordas (bem discreto) */
+.card::before { content: ""; position: absolute; inset: -1px; border-radius: 16px; padding: 1px; background: linear-gradient(120deg, rgba(122,162,247,.35), rgba(158,206,106,.35)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .3s ease; }
+.card:hover::before { opacity: .9; }
+
+/* ====== Footer ====== */
+.site-footer { border-top: 1px solid #23252c; background: rgba(23,24,29,0.4); }
+.site-footer .container { padding: 26px 0; color: var(--muted); font-size: .95rem; }
+
+/* ====== Modo alto contraste opcional ====== */
+@media (prefers-contrast: more) {
+  :root { --primary: #88b0ff; --accent: #b3e37f; }
+  .card { border-color: #2a2d36; }
+}
+
+/* ====== Suporte a imagens reais ====== */
+/* Se você tiver arquivos de capa, coloque-os na pasta e ajuste os data-cover em index.html */
